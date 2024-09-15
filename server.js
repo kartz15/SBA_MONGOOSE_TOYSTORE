@@ -8,7 +8,6 @@ const connectToDB = require("./config/connectToDB");
 const toysRoutes = require("./routes/toysRoutes"); 
 const categoriesRoutes = require('./routes/categoriesRoutes'); // New
 const errorMiddleware = require('./middlewares/errorMiddleware');
-// const navigationController = require('./controllers/navigationController');
 connectToDB();
 
 app.use(express.json());
@@ -20,9 +19,6 @@ app.use(bodyParser.json());
 
 // // Set view engine
  app.set('view engine', 'ejs');
-
-
-// app.use(navigationController.getNavData);
 
 app.get("/", (req, res) => {
   res.send("Hi Welcome to our ToyStvxcvore!");

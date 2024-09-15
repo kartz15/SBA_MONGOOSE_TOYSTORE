@@ -14,11 +14,12 @@
         <section class="toy-list">
             <% toys.forEach(toy => { %>
                 <div class="toy-card">
+                    
                     <img src="<%= toy.url %>" alt="<%= toy.name %>">
                     <h3><%= toy.name %></h3>
                     <a href="/updateToy/<%= toy.id %>" class="btn">Edit Toy</a>
                     <a href="/deleteToy/<%= toy.id %>" class="btn">Delete Toy</a>
-                     Favorite Icon 
+                    <!-- Favorite Icon -->
                     <a href="/favoriteToy/<%= toy.id %>" class="btn">
                         <i class="fa<%= toy.isFavorite ? 's' : 'r' %> fa-heart"></i>
                     </a>
