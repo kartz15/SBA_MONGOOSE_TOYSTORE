@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= category ? 'Edit Category' : 'Add Category' %></title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+    <main>
+    <div class="add-category-form-container">
+    <h2><%= category ? 'Edit Category' : 'Add a New Category' %></h2><br>
+    <form action="/categories" method="POST">
+        <% if (category) { %>
+            <input type="hidden" name="id" value="<%= category._id %>">
+        <% } %>
+        <label for="name">Category Name:</label>
+        <input type="text" id="name" name="name" value="<%= category ? category.name : '' %>" required>
+        <br>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description"><%= category ? category.description : '' %></textarea>
+        <br>
+        <% if (category) { %>
+            <button type="submit" name="action" value="Update">Update Category</button>
+        <% } else { %>
+            <button type="submit" name="action" value="Add">Add Category</button>
+        <% } %>
+    </form>
+    </div>
+    </main>
+    <%- include('partials/footer') %>   
+</body>
+</html>

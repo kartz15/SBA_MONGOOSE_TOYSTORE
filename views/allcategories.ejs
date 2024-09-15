@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+    <main>
+        <h2>Categories</h2><br>
+        <section class="category-list">
+                <% categories.forEach(category => { %>
+                    <div class="category-card">
+                        <h3><%= category.name %></h3><br>
+                        <p><%= category.description %></p>
+                        <a href="/categories/<%= category._id %>" class="btn">Update Category</a>
+                        <a href="/deletecategory/<%= category._id %>" class="btn">Delete Category</a>
+                    </div>
+                <% }); %>
+        </section>
+    </main>
+    <%- include('partials/footer') %>
+</body>
+</html>
